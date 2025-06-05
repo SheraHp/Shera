@@ -1,1 +1,30 @@
-# Shera
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting to EzyHR App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    window.onload = function () {
+      setTimeout(function () {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        const androidURL = "https://play.google.com/store/apps/details?id=com.orisma.android.ezyhr&hl=en_US&pli=1";
+        const iosURL = "https://apps.apple.com/us/app/ezyhr/id6478664077";
+        const fallbackURL = "https://www.ezyhr.com/th/support/using-ezyhr/how-to-download-and-use-new-applications-employee";
+
+        if (/android/i.test(userAgent)) {
+          window.location.href = androidURL;
+        } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
+          window.location.href = iosURL;
+        } else {
+          window.location.href = fallbackURL;
+        }
+      }, 100);
+    };
+  </script>
+</head>
+<body>
+  <p>Redirecting to the EzyHR app…</p>
+</body>
+</html>
